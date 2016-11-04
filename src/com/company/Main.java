@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 public class Main {
 
     public static void main(String[] args) throws IOException {
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = 0;
         int A1 = 0;
@@ -29,6 +30,13 @@ public class Main {
             A1 += rand.nextInt(1000);
             System.out.println(A1);
         }
+        Holiday Grece = new Holiday("Wakacje w Grecji", "Grecja", "Hotel 1", "23-03-2016", "Banan", 2000);
+        Holiday Spain = new Holiday("Wakacje w Hiszpanii", "Hiszpania", "Hotel 2", "24-03-2016", "Bigos", 3000);
+        Holiday Italy = new Holiday("Wakacje we Włoszech", "Włochy", "Hotel 3", "25-03-2016", "Pizza", 4000);
+        Grece.getAllInformation();
+        Spain.getAllInformation();
+        Italy.getAllInformation();
     }
+
 }
 
