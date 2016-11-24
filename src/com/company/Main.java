@@ -10,6 +10,10 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
+        // LAB 1-2 GR B
+        //Wypisac na ekran sume ciągu arytmetycznego o N elementach, rozpoczynającego się od elementu A1 i
+        //rosnącego o losową wartosc
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = 0;
         int A1 = 0;
@@ -33,6 +37,8 @@ public class Main {
             System.out.println(A1);
         }
 
+
+        //LAB 3-4 B)
         Holiday filtering = new Holiday();
 
         List<Holiday> holidayList = new ArrayList<Holiday>(){
@@ -48,6 +54,26 @@ public class Main {
 
         for (Holiday holidays : holidayList){
             holidays.getAllInformation();
+        }
+
+        //Obsługa stworzonego wyjątku
+
+        String word;
+        System.out.println("Podaj pusty znak w celu wywołania wyjątku");
+        word = br.readLine();
+
+        try{
+            if(word.contains(" ")){
+                throw new WordContainsException();
+            }
+        }
+        catch(WordContainsException ex)
+        {
+            ex.printStackTrace();
+            System.out.println("Obsługa wyjątku uruchomiona KOD błędu:" + ex.hashCode() + ex.getMessage() );
+        }
+        finally {
+            System.out.println("Instrukcja finally która się wykona pomimo wyjątku");
         }
     }
 
