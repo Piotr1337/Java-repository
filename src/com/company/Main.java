@@ -1,5 +1,7 @@
 package com.company;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.List;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -30,12 +32,23 @@ public class Main {
             A1 += rand.nextInt(1000);
             System.out.println(A1);
         }
-        Holiday Grece = new Holiday("Wakacje w Grecji", "Grecja", "Hotel 1", "23-03-2016", "Banan", 2000);
-        Holiday Spain = new Holiday("Wakacje w Hiszpanii", "Hiszpania", "Hotel 2", "24-03-2016", "Bigos", 3000);
-        Holiday Italy = new Holiday("Wakacje we Włoszech", "Włochy", "Hotel 3", "25-03-2016", "Pizza", 4000);
-        Grece.getAllInformation();
-        Spain.getAllInformation();
-        Italy.getAllInformation();
+
+        Holiday filtering = new Holiday();
+
+        List<Holiday> holidayList = new ArrayList<Holiday>(){
+            {
+                add(new Holiday("Wakacje w Grecji", "Grecja", "Hotel 1", "23-03-2016", "Banan", 2000));
+                add(new Holiday("Wakacje w Hiszpanii", "Hiszpania", "Hotel 2", "24-03-2016", "Bigos", 3000));
+                add(new Holiday("Wakacje we Włoszech", "Włochy", "Hotel 3", "25-03-2016", "Pizza", 4000));
+            }
+        };
+
+        int result = filtering.getPrice(holidayList,"Hotel 1", "23-03-2016");
+        System.out.println("Cena takiego hotelu wynosi: " + result);
+
+        for (Holiday holidays : holidayList){
+            holidays.getAllInformation();
+        }
     }
 
 }

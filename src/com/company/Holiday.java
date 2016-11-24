@@ -1,5 +1,5 @@
 package com.company;
-
+import java.util.List;
 /**
  * Created by Piotrek on 2016-11-04.
  */
@@ -12,6 +12,10 @@ public class Holiday {
     String fd;
     int pr;
 
+    public Holiday(){
+
+    }
+
     public Holiday(String description, String Country, String Hotel, String term, String food, int price ) {
         desc = description;
         countr = Country;
@@ -20,9 +24,24 @@ public class Holiday {
         fd = food;
         pr = price;
     }
-    public void getPrice()
+    public int getPrice(List<Holiday> holidays,String room, String term)
     {
-        System.out.println("Cena: " + pr);
+        for (Holiday holiday : holidays){
+            if(holiday.getRoom() == room && holiday.getDate() == term){
+                return holiday.pr;
+            }else{
+                return 0;
+            }
+        }
+        return 0;
+    }
+
+    public String getDate(){
+        return ter;
+    }
+
+    public String getRoom(){
+        return hot;
     }
 
     public void getAllInformation(){
